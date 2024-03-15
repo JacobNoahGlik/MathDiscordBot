@@ -62,8 +62,10 @@ def known_keywords():
             pairs += ' (run `$math help compare` for a list of all known set theory symbols)'
     return f"""Hi I am a math bot. I can help you building an equation. Try using `$math <<your math here>>`
     known keywords:{pairs}
-    Note: if your power is non-numeric use `^[<power>]`. ex: `x^[n + (5-3)]`
-    Note: I'm not case sensitive :nerd:
+Note: if your power is non-numeric use `^[<power>]`. ex: `x^[n + (5-3)]`
+Note: I'm not case sensitive :nerd:
+
+Want to see my insides? Go to my [github](https://github.com/JacobNoahGlik/MathDiscordBot/blob/main/README.md) to learn more!
     """
 
 # callable
