@@ -49,8 +49,8 @@ Or look at the `knowledge.py` file to see what it can detect.
    * The bot hides syntax errors and provides users with formatted expressions without feedback on invalid input.
 * **Ignored Non-Mathematical Text:** 
    * The bot ignores non-mathematical text, allowing users to mix math expressions with regular text seamlessly.
-   * Ex: `$math I know 7.333333 * <pi-lower> aprox/ 23.04 but it's really closer to 23.0383450791 acording to goolge. I also know that x^2 >= x`
-      * Response: `I know 7.333333 ⋅ π ≈ 23.04 but it's really closer to 23.0383450791 acording to goolge. I also know that x² ≥ x`
+   * Ex: `$math I know 7.333333<pi-lower> aprox/ 23.04 but it's really closer to 23.0383450791 acording to goolge. I also know that x^2 >= x`
+      * Response: `I know 7.333333π ≈ 23.04 but it's really closer to 23.0383450791 acording to goolge. I also know that x² ≥ x`
 
 <br>
 
