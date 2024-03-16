@@ -209,3 +209,14 @@ __REPLACE__: dict = {
 __REPLACE__.update(__GREEK__)
 __REPLACE__.update(__INTEGRALS__)
 __REPLACE__.update(__COMPARE__)
+
+__NEWID__  = '<@1217872620255445073>'
+__USERID__ = '<@&1217955429745688577>'
+__TESTID__ = '<@&1217901380639920210>'
+__DMID__   = '<@&1217955429745688577>'
+
+if __name__ == '__main__':
+    string = ''
+    for key in __SUPERSCRIPT_GREEK_LETTERS__.keys():
+        string += key
+    print(string)
