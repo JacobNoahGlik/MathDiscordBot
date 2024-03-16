@@ -1,7 +1,10 @@
 import discord
+import random
+import re
 from config import __BOTTOKEN__ as __TOKEN__
 from knowledge import __COMPARE__, __GREEK__, __INTEGRALS__, __KNOWN__
 from knowledge import __POWERS__, __REPLACE__, __SUPERSCRIPT__, __SUPERSCRIPT_GREEK_LETTERS__
+from knowledge import __USERID__, __TESTID__, __DMID__, __NEWID__
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -14,10 +17,14 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    print(f'got message "{message.content}"')
+    print(f'got message "{message.content}" as <{client.user}>')
     if message.author == client.user:
         return
 
+    if is_joke_request(message):
+        chances = get_chances(default=30)
+        await message.reply(joke_routine(chances).replace('@stickygliky', f'<@253293618335318017>'), mention_author=True)
+    
     if message.content.startswith('$math '):
         print(f'replying to {message.content} with an equation')
         msg = message.content.split('$math ')
@@ -30,12 +37,12 @@ async def on_message(message):
         else:
             response = message.content.split('$math ')[1]
             await message.reply(mathify(response), mention_author=True)
-    elif message.content.startswith('$math-replace'):
+    '''elif message.content.startswith('$math-replace'):
             embedVar = discord.Embed(title=message.author, color=0x00ff00)
             embedVar.add_field(name="Org Msg", value=message.content.split('$math-replace ')[1], inline=False)
             embedVar.add_field(name="Fixed", value=mathify(message.content.split('$math-replace ')[1]), inline=False)
             await message.delete()
-            await message.channel.send(embed=embedVar)
+            await message.channel.send(embed=embedVar)'''
 
 def mathify(response):
     response = power_replace(response)
@@ -127,7 +134,43 @@ def help(response: str) -> str:
     for key, value in dict_type.items():
         pairs += f'\n`{key}` -> "{value}"'
     return f"Here are all the keywords I know in the mathamatics-{path} area: {pairs} \nNote: I'm not case sensitive :nerd:"
-    
+
+
+def is_joke_request(message: str) -> bool:
+    pattern = f'({__TESTID__}|{__USERID__}|{__DMID__}|{__NEWID__}|GlikyBot)[ ]+tell[ ]+(me|us)[ ]+(a[ ]+|the[ ]+|)joke'
+    if re.search(pattern, str(message.content).lower()):
+        return True
+    return False
+
+def rand_from_arr(arr):
+    return arr[random.randint(0, len(arr) - 1)]
+
+def rand_line_file(file_name: str) -> str:
+    with open(file_name, 'r') as f:
+        emojis, lines = f.read().split('\n', 1)
+        emojis = emojis.split(' ')
+        lines = lines.split('\n')
+    return f'{rand_from_arr(lines)}{rand_from_arr(emojis)}'
+
+def tell_insult() -> str:
+    return rand_line_file('insults.txt')
+def tell_joke() -> str:
+    return rand_line_file('jokes.txt')
+def joke_routine(chances_of_insult: int) -> str:
+    start = rand_line_file('quips.txt')
+    if random.randint(0, 100) < chances_of_insult:
+        return start + tell_insult()
+    return start + tell_joke()
+
+def get_chances(default=0):
+    try:
+        with open(f'chances.txt', 'r') as f:
+            c = f.read()
+        return int(c)
+    except Exception as e:
+        print(e)
+        return default
+
 def run():
     client.run(__TOKEN__)
 
