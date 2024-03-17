@@ -1,5 +1,6 @@
 # MathDiscordBot
-The Discord Math Bot is a Python-based bot designed to facilitate mathematical expression formatting within Discord servers. It aims to address the limitations of Discord's text formatting capabilities, particularly for educational or math-related discussions.
+The Discord Math Bot is a Python-based bot designed to facilitate mathematical expression formatting within Discord servers. It aims to address the limitations of Discord's text formatting capabilities, particularly for educational or math-related discussions by substituting equation representation with unnicode charictors that look like an equation.
+This bot is also able to tell jokes, but that's a separate feture and can easily be disabled. 
 
 <br>
 
