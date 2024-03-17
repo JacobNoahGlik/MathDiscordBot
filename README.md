@@ -15,19 +15,7 @@ Or look at the `knowledge.py` file to see what it can detect.
 
 <br>
 
-## Usage - Jokes
-To ask for a joke users can direct message or communicate with it in servers where botht he user and the bot are present. The bot responds to commands prefixed with `GlikyBot` or `@GlikyBot`. Note: for `@GlikyBot` to work, a single setup is required, adding the @glikybot id to the supported IDs in the `knowledge.py` file.
-``` bash
-GlikyBot tell me the joke
-@GlikyBot Tell a Joke!
-```
-Note that the bot is not case sencitive and will recognize the joke request as long as the message contains the words `tell` and `joke`
-The regex is as follows: `"(GlikyBot)[ ]+tell[ ]+(me[ ]+|us[ ]+|)(a[ ]+|the[ ]+|)joke"`
-The jokes themselfs can be found lines 2+ of the `jokes.txt` file.
-
-<br>
-
-## Features
+## Features - Math
 
 * **Mathematical Expression Formatting:**
    * Users can input mathematical expressions using standard notation, including superscripts, subscripts, Greek letters, and complex powers.
@@ -66,8 +54,20 @@ The jokes themselfs can be found lines 2+ of the `jokes.txt` file.
 
 <br>
 
-## Limitations
+## Limitations - Math
 **Fractions:** The bot does not currently support formatting fractions due to Discord's limitations on rich text formatting.
+
+<br>
+
+## Usage - Jokes
+To ask for a joke users can direct message or communicate with it in servers where botht he user and the bot are present. The bot responds to commands prefixed with `GlikyBot` or `@GlikyBot`. Note: for `@GlikyBot` to work, a single setup is required, adding the @glikybot id to the supported IDs in the `knowledge.py` file.
+``` bash
+GlikyBot tell me the joke
+@GlikyBot Tell a Joke!
+```
+Note that the bot is not case sencitive and will recognize the joke request as long as the message contains the words `tell` and `joke`
+The regex is as follows: `"(GlikyBot)[ ]+tell[ ]+(me[ ]+|us[ ]+|)(a[ ]+|the[ ]+|)joke"`
+The jokes themselves can be found lines 2+ of the `jokes.txt` file. Note that every joke as a chance to be an insult instead. Insults can be found on line 2+ of the `insult.txt` file, and the chances of a joke being an insult can be found in `chances.txt`, where the default (if a number cannot be read from `chances.txt`) value is 0.
 
 <br>
 
