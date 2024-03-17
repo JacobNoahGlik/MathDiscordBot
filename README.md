@@ -3,7 +3,7 @@ The Discord Math Bot is a Python-based bot designed to facilitate mathematical e
 
 <br>
 
-## Usage
+## Usage - Math
 To interact with the bot, users can send direct messages or communicate with it in servers where both the user and the bot are present. The bot responds to commands prefixed with `$math`. Here's an example usage:
 ``` bash
 $math x^2 + 3y - 5z
@@ -12,6 +12,18 @@ This command would result in the bot replying with the formatted mathematical ex
 
 For more information on supported syntax and commands, users can type `$math help`.
 Or look at the `knowledge.py` file to see what it can detect.
+
+<br>
+
+## Usage - Jokes
+To ask for a joke users can direct message or communicate with it in servers where botht he user and the bot are present. The bot responds to commands prefixed with `GlikyBot` or `@GlikyBot`. Note: for `@GlikyBot` to work, a single setup is required, adding the @glikybot id to the supported IDs in the `knowledge.py` file.
+``` bash
+GlikyBot tell me the joke
+@GlikyBot Tell a Joke!
+```
+Note that the bot is not case sencitive and will recognize the joke request as long as the message contains the words `tell` and `joke`
+The regex is as follows: `"(GlikyBot)[ ]+tell[ ]+(me[ ]+|us[ ]+|)(a[ ]+|the[ ]+|)joke"`
+The jokes themselfs can be found lines 2+ of the `jokes.txt` file.
 
 <br>
 
